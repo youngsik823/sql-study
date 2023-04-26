@@ -23,14 +23,17 @@ ADD CONSTRAINT pk_stu_num
 
 -- 컬럼 추가하기
 ALTER TABLE TBL_SCORE 
-ADD (sci NUMBER(3) NOT NULL);
+ADD sci NUMBER(3) NOT NULL; 
 
--- 컬럼 제거하기
+-- 컬럼 제거하기 
 ALTER TABLE TBL_SCORE 
 DROP COLUMN sci;
 
+SELECT * FROM TBL_SCORE;
+
 -- 테이블 복사 (tb_emp)
 -- CTAS
+
 CREATE TABLE TB_EMP_COPY 
 AS SELECT * FROM TB_EMP;
 
@@ -77,6 +80,8 @@ VALUES
 	('후리2', 6, 1500),
 	('후리3', 7, 5300);
 
+INSERT INTO goods (g_name, id, price)
+VALUES ('지워니', 0, 999999);
 
 -- 수정 UPDATE 
 UPDATE goods 
@@ -132,12 +137,18 @@ SELECT
 	ADDR AS "주소"
 FROM TB_EMP; 
 
+SELECT 
+	EMP_NM 사원명, -- 띄어쓰기 없으면 ""생략 가능
+	ADDR 주소
+FROM TB_EMP;
+
 -- 문자열 연결하기
 -- 오라클은 문자열을 || 로 이어지게 한다
 SELECT 
 	CERTI_NM || '(' || ISSUE_INSTI_NM || ')' AS "자격증 정보" 
 FROM TB_CERTI;
 
+SELECT * FROM TB_CERTI;
 
 SELECT * FROM goods;
 
